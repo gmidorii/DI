@@ -1,7 +1,4 @@
-import vegetables.ほうれん草;
-import vegetables.キャベツ;
-import vegetables.トマト;
-import vegetables.大根;
+import vegetables.*;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -39,13 +36,20 @@ public class Main {
 
 
 
+
         /**
          *  DIコンテナを利用している場合(Guice)
          */
-        // Inject設定(今回は特に必要なし)
+        // Inject設定
         Injector injector = Guice.createInjector(new AbstractModule() {
             @Override
-            protected void configure() {}
+            protected void configure() {
+                // インターフェイスの実装クラスを指定
+                bind(ネギ.class).to(九条ねぎ.class);
+
+                // コンストラクタを指定
+                bind(たまねぎ.class).toInstance(new たまねぎ("淡路島たまねぎ"));
+            }
         });
 
         // このタイミングで、@Inject アノテーションが付与されているフィールドに

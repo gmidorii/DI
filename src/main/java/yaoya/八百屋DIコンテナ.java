@@ -1,9 +1,6 @@
 package yaoya;
 
-import vegetables.ほうれん草;
-import vegetables.キャベツ;
-import vegetables.トマト;
-import vegetables.大根;
+import vegetables.*;
 import com.google.inject.Inject;
 
 /**
@@ -22,6 +19,14 @@ public class 八百屋DIコンテナ implements 八百屋{
     @Inject
     private ほうれん草 hourensou;
 
+    @Inject
+    private ネギ negi;
+
+    @Inject
+    private たまねぎ tamanegi;
+
+    @Inject
+    private すいか suica;
 
     public void print(){
         System.out.println("---------DI container-----------");
@@ -29,6 +34,10 @@ public class 八百屋DIコンテナ implements 八百屋{
         kyabetu.printName();
         daikon.printName();
         hourensou.printName();
+        System.out.println("-- ex --");
+        negi.printNegi();
+        tamanegi.printName();
+        suica.printSuica();
         System.out.println("--------------------------------");
     }
 }
